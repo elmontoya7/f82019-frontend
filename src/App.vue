@@ -1,29 +1,38 @@
-<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+<template lang="pug">
+  #app
+    router-view
 </template>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@font-face {
+  font-family: Cerebri;
+  src: url('./assets/fonts/cerebri-sans-medium.ttf');
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+
+@font-face {
+  font-family: "feather";
+  src: url('./assets/fonts/feather.eot?t=1501834582692'); /* IE9*/
+  src: url('./assets/fonts/feather.eot?t=1501834582692#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('./assets/fonts/feather.woff?t=1501834582692') format('woff'), /* chrome, firefox */
+  url('./assets/fonts/feather.ttf?t=1501834582692') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('./assets/fonts/feather.svg?t=1501834582692#feather') format('svg'); /* iOS 4.1- */
+}
+
+html, body {
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+#app {
+  min-width: 100vw;
+  min-height: 100vh;
 }
 </style>
