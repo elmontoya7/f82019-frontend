@@ -32,10 +32,10 @@
                       input.form-control.form-control-flush.search(type='search', placeholder='Search')
                 .col-auto
                   .dropdown
-                    b-dropdown#dropdown-right(right='', text='Filter by:', variant='white', size="sm")
-                      b-dropdown-item(href='#') Positive
-                      b-dropdown-item(href='#') Negatie
-                      b-dropdown-item(href='#') Neutral
+                    b-dropdown#dropdown-right(right='', :text="'Filter by: ' + sentiment", variant='white', size="sm")
+                      b-dropdown-item(@click="changeSentiment('positive')") Positive
+                      b-dropdown-item(@click="changeSentiment('negative')") Negatie
+                      b-dropdown-item(@click="changeSentiment('neutral')") Neutral
             b-table.card-table(:items="negative_messages", :fields="fields", responsive)
               template(slot="index" slot-scope="data") {{ data.index + 1 }}
               template(slot="timestamp" slot-scope="data") {{ $moment(data.item.timestamp).format('DD/MM/YYYY - HH:mm') }}
@@ -59,7 +59,8 @@ export default {
         'content',
         'timestamp'
       ],
-      broadcast_message: ''
+      broadcast_message: '',
+      sentiment: 'negative'
     }
   },
   computed: {
@@ -82,15 +83,21 @@ export default {
     },
     getMessages () {
       let self = this
+      this.showLoadingScreen()
 
       this['db/getMessages']({
-        sentiment: 'negative',
+        sentiment: self.sentiment,
         callback: res => {
+          self.hideLoadingScreen()
           if (res.success) {
             self.negative_messages = res.resource.slice()
           }
         }
       })
+    },
+    changeSentiment (sentiment) {
+      this.sentiment = sentiment
+      this.getMessages()
     }
   },
   mounted () {
