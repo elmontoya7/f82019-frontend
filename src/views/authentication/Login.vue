@@ -6,13 +6,28 @@
           img.logo.mb-4(src="/logo.png")
           h3 Login with Facebook
           .help-text.mb-4 We don't post anything to Facebook
-          b-button(variant="primary")
+          b-button(variant="primary", @click="authenticate('facebook')")
             v-icon.mr-2(name="brands/facebook-square", scale="1.5")
             span Continue with Facebook
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
+  methods: {
+    ...mapActions(['auth/authenticate']),
+    authenticate (provider) {
+      let self = this
+
+      this['auth/authenticate']({
+        provider: provider,
+        callback: res => {
+          console.log(res);
+        }
+      })
+    }
+  }
 }
 </script>
 
