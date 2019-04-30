@@ -24,12 +24,12 @@ Vue.use(VueAxios, axios)
 
 import VueAuthenticate from 'vue-authenticate'
 Vue.use(VueAuthenticate, {
-  baseUrl: 'https://dda49c3f.ngrok.io/api',
+  baseUrl: 'https://656e0bf4.ngrok.io/backend/api',
   providers: {
     facebook: {
       clientId: process.env.VUE_APP_FACEBOOK_APP_ID,
-      redirectUri: `${window.location.origin}/callback`,
-      scope: ['name', 'email', 'id']
+      redirectUri: `https://656e0bf4.ngrok.io/callback`,
+      scope: []
     }
   }
 })

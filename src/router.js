@@ -8,6 +8,8 @@ import store from './store/store'
 // Authentication
 import Login from './views/authentication/Login.vue'
 
+import CheckIn from './views/CheckIn.vue'
+
 Vue.use(Router)
 
 const router = new Router({
@@ -39,13 +41,23 @@ const router = new Router({
         store.dispatch('auth/logout')
         next({name: 'root'})
       }
+    },
+    {
+      path: '/callback',
+      name: 'callback'
+    },
+    {
+      path: '/check-in',
+      name: 'checkin',
+      component: CheckIn
     }
   ]
 })
 
 let whitelisted_routes = [
   'root',
-  'login'
+  'login',
+  'checkin'
 ]
 
 // verify data before route
