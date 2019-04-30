@@ -84,13 +84,7 @@ export default {
       let self = this
 
       this['db/getMessages']({
-        queries: [
-          {
-            field: 'sentiment',
-            value: 'negative',
-            operator: '=='
-          }
-        ],
+        sentiment: 'negative',
         callback: res => {
           if (res.success) {
             self.negative_messages = res.resource.slice()
