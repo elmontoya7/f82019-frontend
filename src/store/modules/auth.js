@@ -34,11 +34,6 @@ const actions = {
       }
       let response = await Vue.prototype.$auth.authenticate(ProviderTranslator(params.provider))
       console.log(response);
-      if (response.data.success) {
-        params.callback({ success: true, platform: params.provider, data: response.data.data })
-      } else {
-        params.callback({ error: 'Something went wrong. Try again.' })
-      }
     } catch (e) {
       console.error(e)
       params.callback({ error: 'An unexpected error ocurred.' })
