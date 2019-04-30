@@ -13,6 +13,8 @@
 
 <script>
 import { mapActions } from 'vuex'
+import { createNamespacedHelpers } from 'vuex'
+const authController = createNamespacedHelpers('auth')
 
 export default {
   methods: {
@@ -26,6 +28,16 @@ export default {
           console.log(res);
         }
       })
+    }
+  },
+  computed: {
+    ...authController.mapState({
+      isAuth: state => state.isAuth
+    })
+  },
+  watch: {
+    isAuth (val) {
+      if (val === true) this.$router.push({name: 'root'})
     }
   }
 }

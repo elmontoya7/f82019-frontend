@@ -33,10 +33,28 @@ const actions = {
         return
       }
       let response = await Vue.prototype.$auth.authenticate(ProviderTranslator(params.provider))
-      console.log(response);
+      if (response.data.success) {
+        context.commit('changeAuthStatus')
+        params.callback({ success: true })
+      }
     } catch (e) {
       console.error(e)
       params.callback({ error: 'An unexpected error ocurred.' })
+    }
+  },
+  async user (context, params) {
+    try {
+      let fields = ['id', 'name', 'first_name', 'last_name'],
+          url = 'https://graph.facebook.com/v3.2/me?fields=' + fields.join(',') + '&access_token=' + Vue.prototype.$auth.getToken()
+
+      let response = await Vue.axios.get(url)
+      if (response.data.error) {
+        params.callback({ success: false, error: response.data.error })
+      } else {
+        params.callback({ success: true, resource: response.data })
+      }
+    } catch (e) {
+      console.error('user:', e);
     }
   }
 }

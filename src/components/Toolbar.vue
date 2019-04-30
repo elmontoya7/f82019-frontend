@@ -3,7 +3,7 @@
     b-container
       b-navbar-toggle.mr-auto.burger-menu(target="navbar-collapse")
         menu-icon
-      b-navbar-brand.mr-auto(:to="{name: 'root'}") Mental Health
+      b-navbar-brand.mr-auto(:to="{name: 'root'}") Not alone
       b-navbar-nav.d-none.d-lg-block
         b-nav-item(:to="{name: 'logout'}") Logout
       b-navbar-nav.d-lg-none.invisible

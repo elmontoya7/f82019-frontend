@@ -9,6 +9,7 @@ import store from './store/store'
 import Login from './views/authentication/Login.vue'
 
 import CheckIn from './views/CheckIn.vue'
+import Dashboard from './views/Dashboard.vue'
 
 Vue.use(Router)
 
@@ -50,6 +51,11 @@ const router = new Router({
       path: '/check-in',
       name: 'checkin',
       component: CheckIn
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard
     }
   ]
 })

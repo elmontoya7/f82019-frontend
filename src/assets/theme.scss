@@ -69,6 +69,10 @@ $font-family-base: Cerebri;
       color: $value;
     }
   }
+
+  .#{$color} {
+    color: $value;
+  }
 }
 
 $sizes: 0 1 2;

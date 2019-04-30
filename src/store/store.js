@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 //modules
 import auth from './modules/auth'
 import loader from './modules/loader'
+import db from './modules/db'
 
 Vue.use(Vuex)
 
@@ -25,6 +26,10 @@ export default new Vuex.Store({
     loader: {
       namespaced: true,
       ...loader
+    },
+    db: {
+      namespaced: true,
+      ...db
     }
   }
 })

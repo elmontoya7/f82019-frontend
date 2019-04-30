@@ -29,8 +29,8 @@ Vue.use(VueAuthenticate, {
   providers: {
     facebook: {
       clientId: process.env.VUE_APP_FACEBOOK_APP_ID,
-      redirectUri: `https://656e0bf4.ngrok.io/callback`,
-      scope: ['email']
+      redirectUri: `${window.location.origin}/callback`,
+      scope: []
     }
   }
 })
