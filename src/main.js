@@ -25,6 +25,7 @@ Vue.use(VueAxios, axios)
 import VueAuthenticate from 'vue-authenticate'
 Vue.use(VueAuthenticate, {
   baseUrl: 'https://656e0bf4.ngrok.io/backend/api',
+  tokenName: 'access_token',
   providers: {
     facebook: {
       clientId: process.env.VUE_APP_FACEBOOK_APP_ID,

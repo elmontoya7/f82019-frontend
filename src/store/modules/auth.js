@@ -41,7 +41,7 @@ const actions = {
       }
     } catch (e) {
       console.error(e)
-      params.callback({ error: 'Something went wrong. Try again.' })
+      params.callback({ error: 'An unexpected error ocurred.' })
     }
   }
 }
