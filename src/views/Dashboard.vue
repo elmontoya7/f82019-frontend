@@ -34,7 +34,7 @@
                   .dropdown
                     b-dropdown#dropdown-right(right='', :text="'Filter by: ' + sentiment", variant='white', size="sm")
                       b-dropdown-item(@click="changeSentiment('positive')") Positive
-                      b-dropdown-item(@click="changeSentiment('negative')") Negatie
+                      b-dropdown-item(@click="changeSentiment('negative')") Negative
                       b-dropdown-item(@click="changeSentiment('neutral')") Neutral
             b-table.card-table(:items="negative_messages", :fields="fields", responsive)
               template(slot="index" slot-scope="data") {{ data.index + 1 }}
