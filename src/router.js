@@ -57,7 +57,8 @@ const router = new Router({
 let whitelisted_routes = [
   'root',
   'login',
-  'checkin'
+  'checkin',
+  'callback'
 ]
 
 // verify data before route
