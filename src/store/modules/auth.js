@@ -33,6 +33,7 @@ const actions = {
         return
       }
       let response = await Vue.prototype.$auth.authenticate(ProviderTranslator(params.provider))
+      console.log(response);
       if (response.data.success) {
         params.callback({ success: true, platform: params.provider, data: response.data.data })
       } else {
